@@ -2,6 +2,9 @@ UNITS = ["bit", "byte", "kilobyte", "megabyte", "gigabyte", "terabyte", "petabyt
 
 def convert(quantidade, unidade_origem, unidade_destino):
     fator = 1
+    if unidade_origem == "bit":
+        fator /=8
+        unidade_origem = "byte"
     indice_origem = UNITS.index(unidade_origem)
     indice_destino = UNITS.index(unidade_destino)
     if indice_origem < indice_destino:
@@ -10,6 +13,8 @@ def convert(quantidade, unidade_origem, unidade_destino):
     else:
         for i in range(indice_destino + 1, indice_origem + 1):
             fator *= 1024
+        if unidade_destino == "bit":
+            fator = (fator/1024)*8
     
     quantidade_destino = quantidade * fator
     
