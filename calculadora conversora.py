@@ -16,9 +16,9 @@ def convert(quantidade, unidadeorigem, unidadedestino):
         if unidadedestino == "bit":
             fator = (fator/1024)*8
     
-    quantidade_destino = quantidade * fator
+    quantidadedestino = quantidade * fator
     
-    return quantidade_destino
+    return quantidadedestino
 
 
 quantidade = float(input("Digite a quantidade a ser convertida: "))
